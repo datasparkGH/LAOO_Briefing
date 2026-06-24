@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老窩咖啡 × 加盟招商說明會</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --caramel:    #3D1F00;
+    --orange:     #F06010;
+    --orange-lt:  #FF8C42;
+    --orange-pale:#FFF0E6;
+    --white:      #FFFFFF;
+    --bg:         #FDF8F4;
+    --surface:    #FFFFFF;
+    --border:     #EAE0D8;
+    --text-main:  #1A0F00;
+    --text-sub:   #7A6050;
+    --text-mute:  #B09880;
+
+    --c-gray-bg:   #F3EDE8; --c-gray-bd:   #DDD0C8; --c-gray-num:  #9A887A;
+    --c-orange-bg: #FFF0E6; --c-orange-bd: #FFCAA0; --c-orange-num:#E05008;
+    --c-brown-bg:  #FBF0E4; --c-brown-bd:  #E8C89A; --c-brown-num: #8A4A10;
+    --c-dark-bg:   #F0EAE4; --c-dark-bd:   #C8B8A8; --c-dark-num:  #3D1F00;
+
+    /* 分工色 */
+    --brand-bg:  #FFF3E6; --brand-bd: #FFCF99; --brand-tx: #8A3800;
+    --team-bg:   #EEF4FF; --team-bd:  #AECBFF; --team-tx:  #1A3A7A;
+  }
+
+  body { background: var(--bg); color: var(--text-main); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; min-height: 100vh; }
+
+  /* ── Header ── */
+  header { background: var(--caramel); padding: 52px 48px 44px; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: var(--orange); opacity: 0.18; }
+  header::after  { content: ''; position: absolute; bottom: -50px; left: 25%; width: 200px; height: 200px; border-radius: 50%; background: var(--orange-lt); opacity: 0.1; }
+  .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; color: var(--orange-lt); text-transform: uppercase; margin-bottom: 14px; }
+  h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(26px, 5vw, 40px); font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 10px; }
+  .header-sub { font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; }
+  .header-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .badge { display: inline-block; padding: 5px 14px; border: 1px solid rgba(240,96,16,0.45); border-radius: 20px; font-size: 12px; color: var(--orange-lt); letter-spacing: 0.06em; }
+  .badge.highlight { background: var(--orange); border-color: var(--orange); color: var(--white); font-weight: 500; }
+
+  /* ── Tabs ── */
+  .tab-bar { background: var(--caramel); border-bottom: 2px solid rgba(240,96,16,0.3); }
+  .tab-list { max-width: 860px; margin: 0 auto; display: flex; padding: 0 48px; list-style: none; }
+  .tab-btn { padding: 14px 20px 12px; font-size: 13px; font-weight: 400; letter-spacing: 0.05em; color: rgba(255,255,255,0.5); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color 0.18s, border-color 0.18s; white-space: nowrap; }
+  .tab-btn:hover { color: var(--orange-lt); }
+  .tab-btn.active { color: var(--orange-lt); border-bottom-color: var(--orange); font-weight: 500; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .content-wrap { max-width: 860px; margin: 0 auto; padding: 48px 48px 80px; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 28px; }
+
+  /* ── Flow steps ── */
+  .step { display: grid; grid-template-columns: 56px 1fr; gap: 0 20px; }
+  .step-left { display: flex; flex-direction: column; align-items: center; }
+  .step-number { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+  .sn-gray   { background: var(--c-gray-bg);  color: var(--c-gray-num);  border: 1px solid var(--c-gray-bd); }
+  .sn-orange { background: var(--c-orange-bg); color: var(--c-orange-num);border: 1px solid var(--c-orange-bd); }
+  .sn-brown  { background: var(--c-brown-bg);  color: var(--c-brown-num); border: 1px solid var(--c-brown-bd); }
+  .sn-dark   { background: var(--c-dark-bg);   color: var(--c-dark-num);  border: 1px solid var(--c-dark-bd); }
+  .connector { width: 1px; background: var(--border); flex: 1; min-height: 24px; margin: 4px auto; }
+  .step-card { padding: 18px 22px; border-radius: 10px; margin-bottom: 4px; border: 1px solid transparent; transition: box-shadow 0.18s; }
+  .step-card:hover { box-shadow: 0 2px 14px rgba(61,31,0,0.08); }
+  .sc-gray   { background: var(--c-gray-bg);  border-color: var(--c-gray-bd); }
+  .sc-orange { background: var(--c-orange-bg); border-color: var(--c-orange-bd); }
+  .sc-brown  { background: var(--c-brown-bg);  border-color: var(--c-brown-bd); }
+  .sc-dark   { background: var(--c-dark-bg);   border-color: var(--c-dark-bd); }
+  .card-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .card-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: var(--text-main); }
+  .card-duration { font-size: 12px; font-weight: 500; white-space: nowrap; margin-left: 12px; color: var(--orange); }
+  .card-desc { font-size: 13px; color: var(--text-sub); margin-top: 6px; line-height: 1.7; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .tag { font-size: 11.5px; padding: 2px 10px; border-radius: 10px; white-space: nowrap; }
+  .sc-gray  .tag { background: var(--c-gray-bd);  color: #6B5A50; }
+  .sc-orange .tag { background: var(--c-orange-bd); color: #8A3800; }
+  .sc-brown .tag { background: var(--c-brown-bd);  color: #7A3A08; }
+  .sc-dark  .tag { background: var(--c-dark-bd);   color: #3D1F00; }
+  .highlight-note { margin-top: 10px; padding: 8px 12px; background: rgba(240,96,16,0.1); border-left: 3px solid var(--orange); border-radius: 0 6px 6px 0; font-size: 12px; color: var(--orange); font-weight: 500; line-height: 1.6; }
+  .total-row { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 32px; padding-top: 20px; border-top: 1px dashed var(--border); }
+  .total-label { font-size: 12px; color: var(--text-mute); }
+  .total-value { font-size: 15px; font-weight: 700; color: var(--orange); font-family: 'Noto Serif TC', serif; }
+
+  /* ══ FUNNEL ══ */
+  .funnel-intro { margin-bottom: 28px; padding: 16px 20px; background: var(--c-orange-bg); border: 1px solid var(--c-orange-bd); border-radius: 10px; font-size: 13px; color: var(--text-sub); line-height: 1.8; }
+  .funnel-intro strong { color: var(--orange); font-weight: 500; }
+
+  /* Sources grid */
+  .sources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px; }
+  .source-card { padding: 18px 20px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); }
+  .source-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .source-icon { font-size: 20px; }
+  .source-name { font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: var(--text-main); }
+  .source-count { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 8px; background: var(--orange); color: var(--white); margin-left: auto; }
+  .source-detail { font-size: 12px; color: var(--text-sub); line-height: 1.7; margin-bottom: 10px; }
+  .source-owner { display: flex; align-items: flex-start; gap: 6px; font-size: 12px; }
+  .owner-label { font-weight: 500; color: var(--text-mute); white-space: nowrap; padding-top: 1px; }
+  .owner-val { color: var(--text-main); line-height: 1.6; }
+  .owner-backup { color: var(--text-mute); font-size: 11px; }
+
+  /* Funnel stages */
+  .funnel-stages { display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; }
+  .f-stage { padding: 18px 24px; border-left: 3px solid var(--orange); background: var(--surface); border-radius: 0; position: relative; }
+  .f-stage:first-child { border-radius: 10px 10px 0 0; }
+  .f-stage:last-child  { border-radius: 0 0 10px 10px; background: var(--caramel); border-left-color: var(--caramel); }
+  .f-stage + .f-stage::before { content: '↓'; display: block; text-align: center; font-size: 16px; color: var(--orange); line-height: 1; margin: 0; position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--bg); padding: 0 4px; }
+  .f-stage-num { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--orange); text-transform: uppercase; margin-bottom: 4px; }
+  .f-stage-title { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+  .f-stage:last-child .f-stage-title { color: #FFD4A8; }
+  .f-stage-desc { font-size: 12px; color: var(--text-sub); line-height: 1.7; margin-bottom: 10px; }
+  .f-stage:last-child .f-stage-desc { color: rgba(255,255,255,0.55); }
+  .f-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .f-tag { font-size: 12px; padding: 3px 12px; border-radius: 12px; white-space: nowrap; }
+  .ft-a { background: #FFD4B0; color: #6B2C00; }
+  .ft-b { background: #FFE6CC; color: #8A3800; }
+  .ft-c { background: #FCEEE0; color: #9A5020; }
+  .ft-d { background: #F0EAE4; color: #3D1F00; }
+  .ft-orange { background: var(--orange); color: var(--white); font-weight: 500; }
+  .ft-dark   { background: rgba(255,255,255,0.15); color: var(--white); }
+
+  /* ══ CHECKLIST ══ */
+  .owner-legend { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-sub); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .ld-brand { background: var(--orange); }
+  .ld-team  { background: #4A7AE0; }
+
+  .cl-progress { margin-bottom: 20px; padding: 14px 18px; background: var(--c-dark-bg); border-radius: 8px; display: flex; align-items: center; gap: 14px; }
+  .progress-bar-wrap { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .progress-bar { height: 100%; background: var(--orange); border-radius: 3px; transition: width 0.3s; width: 0%; }
+  .progress-text { font-size: 12px; color: var(--text-sub); white-space: nowrap; }
+  .progress-count { font-weight: 700; color: var(--orange); }
+
+  .checklist-section { margin-bottom: 36px; }
+  .cl-heading { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: var(--text-main); padding-bottom: 10px; margin-bottom: 14px; border-bottom: 2px solid var(--orange); display: flex; align-items: center; gap: 10px; }
+  .cl-icon { width: 28px; height: 28px; border-radius: 6px; background: var(--orange); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .cl-items { display: flex; flex-direction: column; gap: 8px; }
+  .cl-item { display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); cursor: pointer; transition: background 0.15s; user-select: none; }
+  .cl-item:hover { background: var(--c-orange-bg); }
+  .cl-item.done { background: #F8F4F0; }
+  .cl-item.done .cl-text { color: var(--text-mute); text-decoration: line-through; }
+  .cl-box { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid var(--c-orange-bd); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; background: var(--white); transition: all 0.15s; }
+  .cl-item.done .cl-box { background: var(--orange); border-color: var(--orange); }
+  .cl-item.done .cl-box::after { content: '✓'; font-size: 11px; color: var(--white); font-weight: 700; }
+  .cl-body { flex: 1; }
+  .cl-text { font-size: 13px; color: var(--text-main); line-height: 1.6; }
+  .cl-sub  { font-size: 11.5px; color: var(--text-mute); margin-top: 2px; }
+  .cl-meta { display: flex; align-items: center; gap: 6px; margin-left: auto; flex-shrink: 0; }
+  .cl-badge { font-size: 11px; padding: 2px 8px; border-radius: 8px; font-weight: 500; white-space: nowrap; }
+  .cb-urgent { background: #FFE0CC; color: #C04000; }
+  .cb-prep   { background: #FFF0E0; color: #A06020; }
+  .cb-day    { background: #F0EAE4; color: #6A4A30; }
+  .owner-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .od-brand { background: var(--orange); }
+  .od-team  { background: #4A7AE0; }
+
+  footer { background: var(--caramel); color: rgba(255,255,255,0.4); text-align: center; padding: 24px; font-size: 12px; letter-spacing: 0.08em; }
+
+  @media (max-width: 640px) {
+    header { padding: 36px 20px 32px; }
+    .tab-list { padding: 0 16px; }
+    .tab-btn { padding: 12px 10px 10px; font-size: 12px; }
+    .content-wrap { padding: 32px 20px 60px; }
+    .step { grid-template-columns: 44px 1fr; gap: 0 12px; }
+    .sources-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .step-card, .cl-item, .progress-bar { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">加盟招商 · 操作工具包</p>
+    <h1>老窩咖啡<br>加盟招商說明會</h1>
+    <p class="header-sub">首場 2025/7/29 · 後續每月 1–2 場 · 每場 6–8 位貴賓</p>
+    <div class="header-badges">
+      <span class="badge highlight">全程 120 分鐘</span>
+      <span class="badge">6 個流程節點</span>
+      <span class="badge">4 大名單來源</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tab-bar">
+  <ul class="tab-list" role="tablist">
+    <li><button class="tab-btn active" role="tab" onclick="switchTab('flow',this)">📋 說明會流程</button></li>
+    <li><button class="tab-btn" role="tab" onclick="switchTab('funnel',this)">🎯 行銷漏斗</button></li>
+    <li><button class="tab-btn" role="tab" onclick="switchTab('checklist',this)">✅ 準備工作清單</button></li>
+  </ul>
+</nav>
+
+<!-- ══════════ TAB 1：說明會流程 ══════════ -->
+<div id="tab-flow" class="tab-panel active">
+  <div class="content-wrap">
+    <p class="section-label">Event Flow · 說明會節奏規劃</p>
+
+    <div class="step">
+      <div class="step-left"><div class="step-number sn-brown">1</div><div class="connector"></div></div>
+      <div class="step-card sc-brown">
+        <div class="card-header"><span class="card-title">報到 &amp; 咖啡飲品體驗</span><span class="card-duration">30 min</span></div>
+        <div class="card-desc">輕鬆入場，與品牌方自然交流。取得說明會飲品，在咖啡香氣中暖場。</div>
+        <div class="card-tags"><span class="tag">簽到</span><span class="tag">領資料袋</span><span class="tag">招牌品項試飲</span><span class="tag">調製示範</span><span class="tag">輕鬆站立交流</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-number sn-orange">2</div><div class="connector"></div></div>
+      <div class="step-card sc-orange">
+        <div class="card-header"><span class="card-title">開場暖場</span><span class="card-duration">5 min</span></div>
+        <div class="card-tags"><span class="tag">主持人開場白</span><span class="tag">流程說明</span><span class="tag">入座</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-number sn-orange">3</div><div class="connector"></div></div>
+      <div class="step-card sc-orange">
+        <div class="card-header"><span class="card-title">品牌故事 &amp; 市場定位</span><span class="card-duration">20 min</span></div>
+        <div class="card-tags"><span class="tag">品牌起源</span><span class="tag">核心價值</span><span class="tag">目標客群</span><span class="tag">競爭優勢</span><span class="tag">門市成功案例</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-number sn-orange">4</div><div class="connector"></div></div>
+      <div class="step-card sc-orange">
+        <div class="card-header"><span class="card-title">現有加盟主見證</span><span class="card-duration">15 min</span></div>
+        <div class="card-desc">真實加盟主現身說法，提升潛在加盟主的加盟信心。</div>
+        <div class="card-tags"><span class="tag">實際經營經驗分享</span><span class="tag">真實數字揭露</span><span class="tag">成功關鍵</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-number sn-dark">5</div><div class="connector"></div></div>
+      <div class="step-card sc-dark">
+        <div class="card-header"><span class="card-title">加盟方案說明</span><span class="card-duration">20 min</span></div>
+        <div class="card-tags"><span class="tag">加盟費用</span><span class="tag">開店流程</span><span class="tag">選址支援</span><span class="tag">教育訓練</span><span class="tag">獲利模型試算</span><span class="tag">回收期估算</span><span class="tag">Q&amp;A</span><span class="tag">問卷發放</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-number sn-gray">6</div></div>
+      <div class="step-card sc-gray">
+        <div class="card-header"><span class="card-title">業務一對一洽談</span><span class="card-duration">30 min</span></div>
+        <div class="card-desc">業務主動與每位貴賓個別交流，確認加盟意願與下一步。</div>
+        <div class="card-tags"><span class="tag">個別洽談加盟意願</span><span class="tag">問卷回收</span><span class="tag">禮物贈送</span><span class="tag">後續聯繫安排</span><span class="tag">拍照留念</span></div>
+        <div class="highlight-note">🎁 填回問卷即贈精美伴手禮（老窩咖啡濾掛包一盒或週邊商品）</div>
+      </div>
+    </div>
+
+    <div class="total-row">
+      <span class="total-label">全程合計</span>
+      <span class="total-value">120 分鐘（2 小時整）</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TAB 2：行銷漏斗 ══════════ -->
+<div id="tab-funnel" class="tab-panel">
+  <div class="content-wrap">
+    <p class="section-label">Marketing Funnel · 潛在加盟主招募路徑</p>
+
+    <div class="funnel-intro">
+      📅 <strong>首場目標：2025/7/29</strong>，後續每月 1–2 場，每場 <strong>6–8 人</strong>。<br>
+      加盟展 LINE@ 名單共 <strong>71 位</strong>，為首場最即時可動用的邀約資源，建議 7/15 前完成第一波邀約確認。
+    </div>
+
+    <!-- 四大來源 -->
+    <p class="section-label" style="margin-bottom:16px;">四大潛在加盟主來源</p>
+    <div class="sources-grid">
+
+      <div class="source-card">
+        <div class="source-card-head">
+          <span class="source-icon">🏪</span>
+          <span class="source-name">既有加盟主</span>
+        </div>
+        <div class="source-detail">現有加盟體系內的加盟主，本身即為品牌最佳背書，可直接邀請出席見證，或透過其人脈帶入新潛在加盟主。</div>
+        <div class="source-owner">
+          <span class="owner-label">對接：</span>
+          <span class="owner-val">品牌創辦人 / 品牌方團隊</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-card-head">
+          <span class="source-icon">🎪</span>
+          <span class="source-name">加盟展名單</span>
+          <span class="source-count">71 位</span>
+        </div>
+        <div class="source-detail">加盟展已接觸並留下 LINE@ 的對象，意願溫度較高。依名單分為已簽意向書及留下聯絡資料兩類，優先邀約前者。</div>
+        <div class="source-owner">
+          <span class="owner-label">對接：</span>
+          <div>
+            <div class="owner-val">加盟展接觸業務（優先）</div>
+            <div class="owner-backup">→ 業務無法配合時，由專案團隊業務人力協助</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-card-head">
+          <span class="source-icon">📣</span>
+          <span class="source-name">廣告投放</span>
+        </div>
+        <div class="source-detail">社群廣告或搜尋廣告導流，填寫表單後進入名單。溫度較低，建議先以 LINE 或電話確認興趣再邀約，以維持場次品質。</div>
+        <div class="source-owner">
+          <span class="owner-label">對接：</span>
+          <span class="owner-val">專案團隊業務人力</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-card-head">
+          <span class="source-icon">🤝</span>
+          <span class="source-name">轉介紹</span>
+        </div>
+        <div class="source-detail">來源多元，包含既有加盟主、品牌方或專案團隊親友、業務陌生開發等。由介紹人先行暖身，信任度通常較高。</div>
+        <div class="source-owner">
+          <span class="owner-label">對接：</span>
+          <div>
+            <div class="owner-val">介紹人（優先）</div>
+            <div class="owner-backup">→ 介紹人無法配合時，由專案團隊業務人力協助</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 漏斗流程 -->
+    <p class="section-label" style="margin-bottom:16px;">招募漏斗流程</p>
+    <div class="funnel-stages">
+
+      <div class="f-stage" style="background:#FFF3EC; border-radius:10px 10px 0 0;">
+        <div class="f-stage-num">Stage 1 · 觸及</div>
+        <div class="f-stage-title">四大來源接觸潛在加盟主</div>
+        <div class="f-stage-desc">透過既有加盟主、加盟展、廣告投放、轉介紹等管道建立初步印象。</div>
+        <div class="f-tags">
+          <span class="f-tag ft-a">既有加盟主</span>
+          <span class="f-tag ft-b">加盟展 LINE@ 71 位</span>
+          <span class="f-tag ft-c">廣告投放</span>
+          <span class="f-tag ft-d">轉介紹</span>
+        </div>
+      </div>
+
+      <div class="f-stage" style="background:#FDE8D8; margin-top:16px;">
+        <div class="f-stage-num">Stage 2 · 名單留存</div>
+        <div class="f-stage-title">依來源分類建立追蹤名單</div>
+        <div class="f-stage-desc">確保每一接觸點都有後續依據；加盟展名單依意向書 / 聯絡資料分級。</div>
+        <div class="f-tags">
+          <span class="f-tag ft-a">已簽意向書（高溫）</span>
+          <span class="f-tag ft-b">留下聯絡資料（中溫）</span>
+          <span class="f-tag ft-c">廣告表單（需確認溫度）</span>
+          <span class="f-tag ft-d">轉介紹名單（高信任）</span>
+        </div>
+      </div>
+
+      <div class="f-stage" style="background:#F8D8BC; margin-top:16px;">
+        <div class="f-stage-num">Stage 3 · 邀約說明會</div>
+        <div class="f-stage-title">依溫度分層邀約入場</div>
+        <div class="f-stage-desc">高溫名單直接邀約；廣告名單需先電話 / LINE 確認興趣再邀約。每場控制在 6–8 人，確保一對一洽談品質。</div>
+        <div class="f-tags">
+          <span class="f-tag ft-a">意向書優先邀約</span>
+          <span class="f-tag ft-b">電話 / LINE 暖身後邀請</span>
+          <span class="f-tag ft-c">廣告再行銷 → 報名頁</span>
+          <span class="f-tag ft-d">介紹人引薦入場</span>
+        </div>
+      </div>
+
+      <div class="f-stage" style="margin-top:16px;">
+        <div class="f-stage-num">Stage 4 · 現場轉換</div>
+        <div class="f-stage-title">說明會現場 → 問卷 + 一對一洽談</div>
+        <div class="f-stage-desc">問卷回收率即為意願溫度指標；業務依來源對接，當場或 3–7 天內跟進簽約。</div>
+        <div class="f-tags">
+          <span class="f-tag ft-orange">問卷填寫（兌換禮物）</span>
+          <span class="f-tag ft-dark">業務一對一洽談</span>
+          <span class="f-tag ft-dark">3 天內 A 名單跟進</span>
+          <span class="f-tag ft-dark">7 天內 B 名單暖身</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TAB 3：準備工作清單 ══════════ -->
+<div id="tab-checklist" class="tab-panel">
+  <div class="content-wrap">
+    <p class="section-label">Preparation Checklist · 說明會籌備確認</p>
+
+    <div class="owner-legend">
+      <div class="legend-item"><div class="legend-dot ld-brand"></div>品牌方負責</div>
+      <div class="legend-item"><div class="legend-dot ld-team"></div>專案團隊負責</div>
+    </div>
+
+    <div class="cl-progress">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-text">已完成 <span class="progress-count" id="progressCount">0</span> / <span id="progressTotal">0</span> 項</div>
+    </div>
+
+    <!-- 說明會內容 — 品牌方主導 -->
+    <div class="checklist-section">
+      <div class="cl-heading"><div class="cl-icon">☕</div>說明會內容（品牌方主導）</div>
+      <div class="cl-items">
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">咖啡飲品體驗品項確認（建議 2–3 款招牌飲品）</div><div class="cl-sub">含食材備料、器具、示範人員排練、過敏原備案</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 1 週</span><div class="owner-dot od-brand"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">說明會加盟優惠或專屬方案設計</div><div class="cl-sub">當場限定優惠、限額名額設計等</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 1 週</span><div class="owner-dot od-brand"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">說明會簡報製作與說明準備</div><div class="cl-sub">品牌故事、市場定位、加盟方案內容</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 1 週</span><div class="owner-dot od-brand"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">現有加盟主見證者邀請與確認出席</div><div class="cl-sub">確認分享要點，提供基本話術建議</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 1 週</span><div class="owner-dot od-brand"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">精美禮物準備（老窩咖啡濾掛包一盒或週邊商品）</div><div class="cl-sub">數量 = 預約人數 + 2 份備份，完成包裝</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 3 天</span><div class="owner-dot od-brand"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 場地與設備 — 專案團隊 -->
+    <div class="checklist-section">
+      <div class="cl-heading"><div class="cl-icon">🏠</div>場地與設備（專案團隊）</div>
+      <div class="cl-items">
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">確認場地預訂（可容納 8–12 人，含飲品體驗吧台區）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 2 週</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">投影設備、螢幕、HDMI 線材測試</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 1 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">麥克風 / 音響設備確認</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 1 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">桌椅擺設（U 型或圍坐）與飲品吧台動線確認</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-day">當天早上</span><div class="owner-dot od-team"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 資料與問卷 — 專案團隊 -->
+    <div class="checklist-section">
+      <div class="cl-heading"><div class="cl-icon">📋</div>資料與問卷（專案團隊）</div>
+      <div class="cl-items">
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">加盟資料袋印製（加盟簡介、費用說明、常見 Q&amp;A）</div><div class="cl-sub">數量 = 預約人數 + 2 份備份</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 3 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">加盟意願問卷設計與印製</div><div class="cl-sub">含意願等級、關注問題、聯絡資訊欄位</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 3 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">獲利模型試算表準備（可現場帶入參數試算）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 3 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 人員協調 — 專案團隊 -->
+    <div class="checklist-section">
+      <div class="cl-heading"><div class="cl-icon">👥</div>人員協調（專案團隊）</div>
+      <div class="cl-items">
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">依報名對象確認 1 對 1 業務人員名單</div>
+          <div class="cl-sub">既有加盟主 → 品牌創辦人 / 品牌方團隊<br>
+          加盟展名單 → 加盟展業務（無法配合則專案團隊補位）<br>
+          廣告投放 → 專案團隊業務<br>
+          轉介紹 → 介紹人（無法配合則專案團隊補位）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 3 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">主持人確認與腳本對稿</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 3 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">報到接待人員確認（簽到、飲品引導、資料袋發送）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-day">當天早上</span><div class="owner-dot od-team"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 邀約與確認 — 專案團隊 -->
+    <div class="checklist-section">
+      <div class="cl-heading"><div class="cl-icon">📲</div>邀約與出席確認（專案團隊）</div>
+      <div class="cl-items">
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">加盟展 LINE@ 71 位名單分級（意向書 / 聯絡資料）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 2 週</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">首波邀約發送（高溫名單優先，目標 7/15 前完成）</div><div class="cl-sub">含時間、地點、流程摘要、報名連結</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">7/15 前</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">廣告投放名單電話 / LINE 確認興趣後邀約</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-urgent">提前 1 週</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">說明會前 1 天提醒出席確認</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">前 1 天</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">整理確認出席名單，通知品牌方更新備料 / 禮物數量</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-day">當天早上</span><div class="owner-dot od-team"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 說明會後跟進 — 專案團隊 -->
+    <div class="checklist-section">
+      <div class="cl-heading"><div class="cl-icon">🔄</div>說明會後跟進（專案團隊）</div>
+      <div class="cl-items">
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">整理問卷，依意願強弱分 A / B 名單</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-day">當天結束後</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">感謝出席訊息發送（含後續聯繫資訊）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-day">24 小時內</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">A 名單通知對應業務主動跟進</div><div class="cl-sub">依來源對接業務（品牌方 / 加盟展業務 / 介紹人 / 專案團隊）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">3 天內</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">B 名單持續暖身，納入下一場次邀約</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">7 天內</span><div class="owner-dot od-team"></div></div>
+        </div>
+        <div class="cl-item" onclick="toggleCheck(this)">
+          <div class="cl-box"></div><div class="cl-body"><div class="cl-text">場次覆盤紀錄（到場人數、問卷回收率、改善建議）</div></div>
+          <div class="cl-meta"><span class="cl-badge cb-prep">3 天內</span><div class="owner-dot od-team"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>老窩咖啡 · 加盟招商部門</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+  }
+  function toggleCheck(el) { el.classList.toggle('done'); updateProgress(); }
+  function updateProgress() {
+    const all = document.querySelectorAll('.cl-item'), done = document.querySelectorAll('.cl-item.done');
+    document.getElementById('progressBar').style.width = (all.length ? done.length/all.length*100 : 0) + '%';
+    document.getElementById('progressCount').textContent = done.length;
+    document.getElementById('progressTotal').textContent = all.length;
+  }
+  updateProgress();
+</script>
+</body>
+</html>
